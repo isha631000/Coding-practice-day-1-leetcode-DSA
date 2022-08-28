@@ -1,0 +1,12 @@
+#attempt to find the subarrays in O(n)
+
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        maxnum=nums[0]
+        curr=0
+        for i in nums:
+            if curr<0:
+                curr=0
+            curr+=i
+            maxnum=max(curr,maxnum)
+        return maxnum
