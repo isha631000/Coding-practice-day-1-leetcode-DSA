@@ -1,0 +1,29 @@
+#found this awsome solution by someone in the discussion page. I didn't know about the ".count" and ".extend". It's great!
+
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        c1 = Counter(nums1)
+        c2 = Counter(nums2)
+        result = []
+        for n, c in c1.items():
+            if n in c2:
+                result.extend([n] * min(c, c2[n]))
+        return result
+ 
+ #MY SOLUTION
+ class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        li=[]
+        if len(nums1)==0 and len(nums2)==0:
+            return 
+        elif len(nums1)==0:
+            return nums2
+        elif len(nums2)==0:
+            return nums1
+        else:
+            
+            for i in nums1:
+                if i in nums2:
+                    li.append(i)
+                    nums2[nums2.index(i)]=-99
+            return li
