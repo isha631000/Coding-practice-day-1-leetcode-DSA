@@ -1,0 +1,18 @@
+#we need two pointers but we need to do it in less than O(N2)
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        i=0
+        j=1
+        l=len(prices)
+        ma=0
+        while j<l :
+            if prices[i]>prices[j]:
+                i=j
+                j=j+1
+            elif prices[i]<=prices[j]:
+                a=prices[j]-prices[i]
+                ma=max(ma,a)
+                j=j+1
+                
+        return ma
+            
